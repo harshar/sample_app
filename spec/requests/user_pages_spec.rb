@@ -3,6 +3,14 @@ require 'spec_helper'
 describe "User pages" do
 
   subject { page }
+  describe "index" do
+    before do
+      sign_in FactoryGirl.create(:user)
+      FactoryGirl.create(:user, name: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:user, name: "Ben", email: "ben@example.com")
+      visit users_path
+    end
+  end
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
@@ -36,4 +44,11 @@ describe "signup" do
       end
     end
   end
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+  end  
   end 

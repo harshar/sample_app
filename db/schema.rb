@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411104538) do
+ActiveRecord::Schema.define(:version => 20130412154514) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20130411104538) do
     t.string   "password"
     t.string   "password_confirmation"
     t.string   "remember_token"
+    t.boolean  "admin"
   end
 
 end
